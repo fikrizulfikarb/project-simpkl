@@ -1,3 +1,3 @@
-<x-app menu="Mahasiswa" header="Mahasiswa " title="Mahasiswa">
+<x-app menu="mahasiswa" header="Mahasiswa " title="Mahasiswa">
     {{ $slot }}
 </x-app>
