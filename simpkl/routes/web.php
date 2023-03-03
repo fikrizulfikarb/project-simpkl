@@ -31,12 +31,12 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 // profile
 Route::resource('profile/pegawai',  PegawaiController::class);
 
-Route::middleware('auth:dataperusahaan')->group(function(){
+Route::middleware('auth:dataperusahaan')->group(function () {
     Route::prefix('istansi')
-    ->middleware('can:simpkl-istansi')
-    ->group(function () {
-        include "_/istansi.php";
-    });
+        ->middleware('can:simpkl-istansi')
+        ->group(function () {
+            include "_/istansi.php";
+        });
 });
 
 
@@ -45,19 +45,17 @@ Route::middleware('auth')->group(function () {
         ->middleware('can:simpkl-superadmin')
         ->group(function () {
             include "_/superadmin.php";
-    });
+        });
 
     Route::prefix('admin')
         ->middleware('can:simpkl-admin')
         ->group(function () {
             include "_/admin.php";
-    });
-
+        });
 });
 
 Route::prefix('mahasiswa')->middleware('auth:mahasiswa')->group(function () {
     include "_/mahasiswa.php";
-
 });
 
 
